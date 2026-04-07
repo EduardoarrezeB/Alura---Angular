@@ -1,0 +1,15 @@
+{
+  "name": "vidflow-nodejs",
+  "version": "1.0.0",
+  "description": "Projeto alura",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "eslint": "^10.2.0"
+  }
+}
