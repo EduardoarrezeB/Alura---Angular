@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="divMain">
+        <h3>Calculadora de Juros 
+            <select name="jurSimCom" id="jurSimCom">
+                <option value="1">Simples</option>
+                <option value="2">Compostos</option>
+            </select>
+        </h3>
+        <label for="capital">Capital:</label>
+        <input type="text" placeholder="Capital em reais" id="capitalx"><br>
+        <label for="taxa">Taxa:</label>
+        <input type="number" name="tax" id="taxax">
+        <select name="optTaxax" id="optTaxa">
+            <option value="1">Meses</option>
+            <option value="2">Dias</option>
+            <option value="3">Anos</option>
+        </select><br>
+        <label for="tempo">Tempo:</label>
+        <input type="number" name="tempoX" id="tempoS">
+        <select name="xx" id="temp">
+            <option value="1">Meses</option>
+            <option value="2">Dias</option>
+            <option value="3">Anos</option>
+        </select><br><br>
+
+        <button type="button" onclick="criaResposta()" id="calculadorBtn">Calcular</button>
+    </div>
+    <div id="resultado"></div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="divMain">
+        <h3>Calculadora de Financiamento</h3>
+        <input type="number" id="valorFinanciado" placeholder="Valor do financiamento">
+        <input type="number" id="taxaPrice" placeholder="Taxa de juros">
+        <select id="optTaxaPrice">
+            <option value="1">Mês</option>
+            <option value="2">Dia</option>
+            <option value="3">Ano</option>
+        </select>
+        <input type="number" id="numParcelas" placeholder="Número de parcelas">
+        <select id="tempPrice">
+            <option value="1">Mês</option>
+            <option value="2">Dia</option>
+            <option value="3">Ano</option>
+        </select>
+
+        <button onclick="exibirResultado()">Calcular</button>
+        <p>Valor da Parcela: <span id="valorParcela"></span></p>
+        <p>Total Pago: <span id="totalPago"></span></p>
+        <p>Juros Total: <span id="jurosTotal"></span></p>
+    </div>
+</body>
+</html>
