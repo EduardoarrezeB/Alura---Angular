@@ -9,17 +9,25 @@ if (formSaldo) {
     formSaldo.addEventListener("submit", function (event) {
         event.preventDefault();
         if (!formSaldo.checkValidity()) {
-            alert("Por favor, preencha todos os campos");
+            alert("Por favor, preencha todos os campos!");
             return;
         }
         const tipoTransacaoVal = tipoTransacao.value;
         const valorVal = valorTransacao.valueAsNumber;
         const dataVal = new Date(dataTransacao.value);
-        if (tipoTransacaoVal == "Depósito") {
+        if (valorVal == 0) {
+            alert("O valor da transação precisa ser maior que zero.");
+            return;
+        }
+        if (tipoTransacaoVal == TipoTransacao.DEPOSITO) {
             saldoInicial += valorVal;
         }
-        if (tipoTransacaoVal == "Transferência" || tipoTransacaoVal == "Pagamento de Boleto") {
+        else if (tipoTransacaoVal == TipoTransacao.PAGAMENTO_BOLETO || tipoTransacaoVal == TipoTransacao.TRANSFERENCIA) {
             saldoInicial -= valorVal;
+        }
+        else {
+            alert("Selecione um tipo de transação válido!");
+            return;
         }
         saldo.textContent = saldoInicial.toString();
         const novaTransacao = {
