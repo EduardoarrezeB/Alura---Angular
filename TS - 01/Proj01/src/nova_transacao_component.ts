@@ -1,10 +1,10 @@
 let saldoInicial = 3000;
 const saldo = document.getElementById("saldoCC") as HTMLElement;
-const formSaldo = document.querySelector(".block-nova-transacao form") as HTMLFormElement;
 const tipoTransacao = document.querySelector("#tipoTransacao") as HTMLSelectElement;
 const valorTransacao = document.querySelector("#valor") as HTMLInputElement;
 const dataTransacao = document.querySelector("#data") as HTMLInputElement;
 
+const formSaldo = document.querySelector(".block-nova-transacao form") as HTMLFormElement;
 
 if(formSaldo) {
 formSaldo.addEventListener("submit", function(event) {
@@ -14,9 +14,9 @@ formSaldo.addEventListener("submit", function(event) {
         return;
     }
 
-    let tipoTransacaoVal = tipoTransacao.value;
-    let valorVal: number = valorTransacao.valueAsNumber;
-    let dataVal: Date = new Date(dataTransacao.value);
+    const tipoTransacaoVal: string = tipoTransacao.value;
+    const valorVal: number = valorTransacao.valueAsNumber;
+    const dataVal: Date = new Date(dataTransacao.value);
 
     if (tipoTransacaoVal == "Depósito") {
         saldoInicial += valorVal;
@@ -27,10 +27,10 @@ formSaldo.addEventListener("submit", function(event) {
 
     saldo.textContent = saldoInicial.toString();
 
-    const novaTransacao = {
-        tipoTransacaoVal: tipoTransacaoVal,
-        valorVal: valorVal,
-        dataVal: dataVal
+    const novaTransacao: Transacao = {
+        tipoTransacao: tipoTransacaoVal,
+        valor: valorVal,
+        data: dataVal
     }
 
     console.log(novaTransacao);
