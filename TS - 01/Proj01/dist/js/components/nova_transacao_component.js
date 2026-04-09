@@ -1,4 +1,4 @@
-"use strict";
+import { TipoTransacao } from "../types/TipoTransacao.js";
 let saldoInicial = 3000;
 const saldo = document.getElementById("saldoCC");
 const tipoTransacao = document.querySelector("#tipoTransacao");

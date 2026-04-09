@@ -1,3 +1,6 @@
+import { TipoTransacao } from "../types/TipoTransacao.js";
+import { Transacao } from "../types/Transacao.js";
+
 let saldoInicial = 3000;
 const saldo = document.getElementById("saldoCC") as HTMLElement;
 const tipoTransacao = document.querySelector("#tipoTransacao") as HTMLSelectElement;
