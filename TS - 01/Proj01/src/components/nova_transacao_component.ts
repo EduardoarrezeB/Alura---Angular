@@ -18,6 +18,13 @@ formSaldo.addEventListener("submit", function(event) {
         return;
     }
 
+    atualizaSaldo()
+
+    formSaldo.reset();
+});
+}
+
+export function atualizaSaldo() {
     const tipoTransacaoVal: TipoTransacao = tipoTransacao.value as TipoTransacao;
     const valorVal: number = valorTransacao.valueAsNumber;
     const dataVal: Date = new Date(dataTransacao.value);
@@ -35,7 +42,7 @@ formSaldo.addEventListener("submit", function(event) {
         alert("Selecione um tipo de transação válido!");
         return;
     }
-
+    
     saldo.textContent = saldoInicial.toString();
 
     const novaTransacao: Transacao = {
@@ -45,6 +52,4 @@ formSaldo.addEventListener("submit", function(event) {
     }
 
     console.log(novaTransacao);
-    formSaldo.reset();
-});
 }
