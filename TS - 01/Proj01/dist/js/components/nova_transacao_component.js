@@ -1,10 +1,10 @@
-import { TipoTransacao } from "../types/TipoTransacao.js";
-let saldoInicial = 3000;
-const saldo = document.getElementById("saldoCC");
+import Conta from "../types/Conta.js";
+import SaldoComponent from "./saldo_component.js";
 const tipoTransacao = document.querySelector("#tipoTransacao");
 const valorTransacao = document.querySelector("#valor");
 const dataTransacao = document.querySelector("#data");
 const formSaldo = document.querySelector(".block-nova-transacao form");
+const asideMovimentacoes = document.querySelector(".extrato .registro-transacoes");
 if (formSaldo) {
     formSaldo.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -19,23 +19,13 @@ if (formSaldo) {
             alert("O valor da transação precisa ser maior que zero.");
             return;
         }
-        if (tipoTransacaoVal == TipoTransacao.DEPOSITO) {
-            saldoInicial += valorVal;
-        }
-        else if (tipoTransacaoVal == TipoTransacao.PAGAMENTO_BOLETO || tipoTransacaoVal == TipoTransacao.TRANSFERENCIA) {
-            saldoInicial -= valorVal;
-        }
-        else {
-            alert("Selecione um tipo de transação válido!");
-            return;
-        }
-        saldo.textContent = saldoInicial.toString();
         const novaTransacao = {
             tipoTransacao: tipoTransacaoVal,
             valor: valorVal,
             data: dataVal
         };
-        console.log(novaTransacao);
+        Conta.registraHistorico(novaTransacao);
+        SaldoComponent.atualizar();
         formSaldo.reset();
     });
 }

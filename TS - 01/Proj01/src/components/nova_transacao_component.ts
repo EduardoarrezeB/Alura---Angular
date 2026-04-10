@@ -1,13 +1,14 @@
+import Conta from "../types/Conta.js";
 import { TipoTransacao } from "../types/TipoTransacao.js";
 import { Transacao } from "../types/Transacao.js";
+import SaldoComponent from "./saldo_component.js";
 
-let saldoInicial = 3000;
-const saldo = document.getElementById("saldoCC") as HTMLElement;
 const tipoTransacao = document.querySelector("#tipoTransacao") as HTMLSelectElement;
 const valorTransacao = document.querySelector("#valor") as HTMLInputElement;
 const dataTransacao = document.querySelector("#data") as HTMLInputElement;
 
 const formSaldo = document.querySelector(".block-nova-transacao form") as HTMLFormElement;
+const asideMovimentacoes = document.querySelector(".extrato .registro-transacoes") as HTMLElement;
 
 if(formSaldo) {
 formSaldo.addEventListener("submit", function(event) {
@@ -18,13 +19,6 @@ formSaldo.addEventListener("submit", function(event) {
         return;
     }
 
-    atualizaSaldo()
-
-    formSaldo.reset();
-});
-}
-
-export function atualizaSaldo() {
     const tipoTransacaoVal: TipoTransacao = tipoTransacao.value as TipoTransacao;
     const valorVal: number = valorTransacao.valueAsNumber;
     const dataVal: Date = new Date(dataTransacao.value);
@@ -34,22 +28,16 @@ export function atualizaSaldo() {
         return;
     }
 
-    if (tipoTransacaoVal == TipoTransacao.DEPOSITO) {
-        saldoInicial += valorVal;
-    } else if (tipoTransacaoVal == TipoTransacao.PAGAMENTO_BOLETO || tipoTransacaoVal == TipoTransacao.TRANSFERENCIA) {
-        saldoInicial -= valorVal;
-    } else {
-        alert("Selecione um tipo de transação válido!");
-        return;
-    }
-    
-    saldo.textContent = saldoInicial.toString();
-
     const novaTransacao: Transacao = {
         tipoTransacao: tipoTransacaoVal,
         valor: valorVal,
         data: dataVal
     }
 
-    console.log(novaTransacao);
+    Conta.registraHistorico(novaTransacao);
+    SaldoComponent.atualizar();
+
+    formSaldo.reset();
+});
 }
+
