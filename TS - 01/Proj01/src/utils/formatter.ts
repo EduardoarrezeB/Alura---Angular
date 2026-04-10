@@ -11,9 +11,11 @@ export function formataData(data: Date, formato: FormatoData = FormatoData.PADRA
             day: "2-digit",
             year: "numeric",
             month: "2-digit"
-        });
+        }).replace(/^\w/, capitalizar => capitalizar.toUpperCase());
     } else if (formato == FormatoData.DIA_MES) {
         return data.toLocaleDateString("pt-br", {day: "2-digit", month: "2-digit"});
+    } else if (formato == FormatoData.MES) {
+        return data.toLocaleDateString("pt-br", {month: "long"}).replace(/^\w/, capitalizar => capitalizar.toUpperCase());
     }
 
     return data.toLocaleDateString("pt-br");
