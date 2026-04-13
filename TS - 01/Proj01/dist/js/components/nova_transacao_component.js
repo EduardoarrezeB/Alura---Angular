@@ -4,7 +4,6 @@ const tipoTransacao = document.querySelector("#tipoTransacao");
 const valorTransacao = document.querySelector("#valor");
 const dataTransacao = document.querySelector("#data");
 const formSaldo = document.querySelector(".block-nova-transacao form");
-const asideMovimentacoes = document.querySelector(".extrato .registro-transacoes");
 if (formSaldo) {
     formSaldo.addEventListener("submit", function (event) {
         event.preventDefault();

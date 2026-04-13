@@ -8,7 +8,6 @@ const valorTransacao = document.querySelector("#valor") as HTMLInputElement;
 const dataTransacao = document.querySelector("#data") as HTMLInputElement;
 
 const formSaldo = document.querySelector(".block-nova-transacao form") as HTMLFormElement;
-const asideMovimentacoes = document.querySelector(".extrato .registro-transacoes") as HTMLElement;
 
 if(formSaldo) {
 formSaldo.addEventListener("submit", function(event) {

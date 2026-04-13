@@ -2,19 +2,12 @@ import { formataData, formataMoeda } from "../utils/formatter.js";
 import { FormatoData } from "../types/FormatoData.js";
 import Conta from "../types/Conta.js";
 
-let saldo: number = 3000;
-
 const dataAcesso = document.querySelector(".block-saldo time") as HTMLElement;
 const saldoCC = document.getElementById("saldoCC") as HTMLElement;
 
 if (dataAcesso != null){
     const dataAcessoVal: Date = Conta.getDataAcesso();
     dataAcesso.textContent = formataData(dataAcessoVal, FormatoData.DIA_SEMANA_DIA_MES_ANO);
-}
-
-
-export function getSaldo(): number {
-    return saldo;
 }
 
 renderizaSaldo();
